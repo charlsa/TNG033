@@ -1,0 +1,21 @@
+/*
+ *  printWithLetters.h
+ *  Lab3
+ *
+ *  Created by Kalle Westerberg on 2012-04-27.
+ *  Copyright 2012 Liu. All rights reserved.
+ *
+ */
+#ifndef PRINTWITHLETTERS_H_INCLUDED
+#define PRINTWITHLETTERS_H_INCLUDED
+
+#include "printStrategy.h"
+
+class PrintWithLetters : public PrintStrategy{
+
+public:
+	PrintWithLetters(){}
+	~PrintWithLetters(){}
+	void print(double x, std::ostream& out);
+};
+#endif
