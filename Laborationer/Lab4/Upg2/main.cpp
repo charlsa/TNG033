@@ -7,12 +7,10 @@
 
 using namespace std;
 
-void read(multimap<string, string> &anagram)
-{
+void read(multimap<string, string> &anagram){
     ifstream in("uppgift2_kort.txt");
     string s,tmp;
-    while(in>>s)
-    {
+    while(in>>s){
         tmp=s;
         sort(tmp.begin(),tmp.end());
         anagram.insert(make_pair(tmp,s));                 //lägger in sorterad string som nyckel till orginalet
@@ -20,21 +18,17 @@ void read(multimap<string, string> &anagram)
     in.close();
 }
 
-void print(multimap<string, string> anagram)
-{
+void print(multimap<string, string> anagram){
     multimap<string, string>::iterator it1,it2;
     it1=anagram.begin();
     it2=it1;
-    while(it2!=anagram.end())
-    {
+    while(it2!=anagram.end()){
         int count=0;
         it2=anagram.upper_bound(it1->first);//it2 pekar på nästkommande ord
         if(++it1==it2);                     //kollar om det endast finns ett ord av samma typ
-        else
-        {
+        else{
             --it1;
-            while(it1!=it2)                 //it1 stegar fram till it2
-            {
+            while(it1!=it2){                 //it1 stegar fram till it2
                 cout << it1-> second << "  ";
                 it1++;
                 count++;
@@ -44,9 +38,7 @@ void print(multimap<string, string> anagram)
     }
 }
 
-
-int main()
-{
+int main(){
     multimap<string, string> anagram;
 
     read(anagram);

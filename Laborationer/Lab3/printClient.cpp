@@ -20,7 +20,7 @@ void PrintClient::set_PrintStrategy (PrintStrategy *newPrintStrategy){
 }
 
 void PrintClient::print(double x){
-	printStrategy->print(x, outStream);
+	printStrategy->print(x, outStream); // pekar vidare
 }
 	
 void PrintClient::print(double *X, int n, string header){

@@ -83,7 +83,6 @@ bool get_diver(ifstream &file, int &id, double &res){
 }
 
 bool update_round(string textFile, string binaryFile, int round){
-	
 	ifstream inFile(textFile.c_str());
 	fstream bin(binaryFile.c_str(), ios::in|ios::out|ios::binary);
 	int id;
@@ -92,21 +91,20 @@ bool update_round(string textFile, string binaryFile, int round){
 	
 	if (!inFile.is_open()) return false;
 	
-		while(end){
-			Diver D;
-			end = get_diver(inFile, id, res); // returns id and res for one diver
-			if(!end){
+	while(end){
+		Diver D;
+		end = get_diver(inFile, id, res); // returns id and res for one diver
+		if(!end){
 			break;	
-			}
-		
-			bin.seekg((id-1)*sizeof(Diver));
-			bin.read((char*) (&D), sizeof(Diver));
-			D.update(round, res); 
-		
-			bin.seekp((id-1)*sizeof(Diver));
-			bin.write((char *) (&D), sizeof(Diver)); //&diver referens till diver objekt.
-			
 		}
+		
+		bin.seekg((id-1)*sizeof(Diver));
+		bin.read((char*) (&D), sizeof(Diver));
+		D.update(round, res); 
+		
+		bin.seekp((id-1)*sizeof(Diver));
+		bin.write((char *) (&D), sizeof(Diver)); //&diver referens till diver objekt.
+	}
 	bin.close();
 	inFile.close();
 }

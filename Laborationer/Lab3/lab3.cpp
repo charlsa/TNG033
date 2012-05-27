@@ -53,7 +53,7 @@ int main(){
         switch (option){
             case 1: cout << "The number: ";
                     cin >> d;
-                    printcon.set_PrintStrategy(&pwc);
+                    printcon.set_PrintStrategy(&pwc); // skickar ref till strategi
                     printcon.print(d);
 					// Display with comma
                     break;

@@ -5,15 +5,13 @@
 #include <vector>
 #include <algorithm>
 
-
-
 using namespace std;
 bool comp(pair<int,string> i, pair<int,string> j)//jämnför två par
 {
     return (i.first>j.first);
 }
 
-void print(vector<pair<int,string> > &par_vec,map<string,int> &word, int counter)
+void print(vector<pair<int,string>> &par_vec, map<string,int> &word, int counter)
 {
     map<string,int>::iterator it;
     vector<pair<int,string> >::iterator it_vec;//iteratorer
