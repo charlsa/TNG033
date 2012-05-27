@@ -94,6 +94,7 @@ bool update_round(string textFile, string binaryFile, int round){
 	while(end){
 		Diver D;
 		end = get_diver(inFile, id, res); // returns id and res for one diver
+		
 		if(!end){
 			break;	
 		}
