@@ -27,8 +27,7 @@ int load_file(double *X, int max);
 /******************************/
 /* 2. Main function           */
 /******************************/
-int main()
-{
+int main(){
     const int MAX = 100;
 
     //printing strategies (algorithms)
@@ -37,7 +36,7 @@ int main()
 	PrintWithScientific pws;
 
      //a print client
-    PrintClient printcon;
+    PrintClient printcon; // innehåller en pekare till strategi
 
     int option;
     double d = 0;

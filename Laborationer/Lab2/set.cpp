@@ -7,20 +7,20 @@ Set::Set()
 								// Constructor for an empty set e.g Set R
 	header = new Node(0,NULL);	// Node men värde 0 och referens NULL. 
 }
+
 Set::Set (const Set& b)
 {// Copy constructor initialising R whit S
 	header = new Node(0,NULL);	// Skapar en ny	
 	
 	Node* n = b.header->next;	// b.header är en pekare till
-	while (n && (n->next != n)) //ty != null true 
-	{
+	while (n && (n->next != n)){ //ty != null true 
 		insert(n->value);	// n pekar till nästa 
 		n = n->next;
 	}
 
 }
-Set::Set(int a[], int n)
-{
+
+Set::Set(int a[], int n){
 	header = new Node(0,NULL);
 	// Constructor creating a set R from n integer in the array a
 	int i = 0;
@@ -29,9 +29,9 @@ Set::Set(int a[], int n)
 		i++;
 	}
 }
+
 //Destructor
-Set::~Set()
-{
+Set::~Set(){
 // Destructor deallocating the nodes in the list, including the header node.
 	for (Node* n = header; n; n = n->next) {
 		header = header->next;
@@ -39,8 +39,8 @@ Set::~Set()
 	}
 	delete header;
 }
-bool Set::member(int x) const
-{
+
+bool Set::member(int x) const{
 // If the element x is in the set R then true is returned, otherwise false,
 	Node* n = header->next;
 	while (n) {
@@ -49,8 +49,8 @@ bool Set::member(int x) const
 	}
 	return false;
 }
-int Set::cardinality() const
-{
+
+int Set::cardinality() const{
 	// Returns the number of elements in the set R,
 	if (empty()) {
 		return 0;
@@ -65,13 +65,13 @@ int Set::cardinality() const
 	}
 	return i;
 }
-bool Set::empty() const
-{ // Returns true if the set R is empty,
+
+bool Set::empty() const{ // Returns true if the set R is empty,
 	if (!(header->next)) return true;
 	return false;
 }
-void Set::insert(int x)
-{
+
+void Set::insert(int x){
 	//A private member function for inserting the element x in the set R.
 	//x should be inserted in sorted order in the linked list. If x already belongs
 	//to the list then it should not be inserted again.
@@ -80,45 +80,39 @@ void Set::insert(int x)
 	}
 	else {
 		Node* temp = header;
-		while (temp->next) // tittar en framåt
-		{
-			if(x > temp->next->value)
-			{
+		while (temp->next){ // tittar en framåt
+			if(x > temp->next->value){ // mindre gå vidare
 				temp = temp->next;
 			}
-			else if	(x < temp->next->value)
-			{
-				temp->insert(x);
+			else if	(x < temp->next->value){ // lägger till
+				temp->insert(x);			 // insert function fån node
 				return;	
 			}
-			else if(x == temp->next->value)
-			{
+			else if(x == temp->next->value){ // om det redan finns 
 				return;
 			}
 		}
 		temp = temp->insert(x);
 	}
 }
-void Set::del(int x)
-{
+
+void Set::del(int x){
 	Node* n = header;
 	Node* temp = n;
 	
-
-	while (n) {
-		if (n->next->value == x) {
+	while (n) {						// sålänge != null
+		if (n->next->value == x) {	
 			temp = n->next;
-			n->next = n->next->next;
+			n->next = n->next->next;// länkar om!
 			delete temp;
 			return;
 		}
-	n = n->next;
+		n = n->next;
 	}
 }
 //Overloaded operators
 //Definerar operatorerna för ett Set.
-Set Set::operator+(const Set& b) const
-{	
+Set Set::operator+(const Set& b) const{	
 	Set temp = *this;
 	Node* right = b.header->next;
 	
@@ -128,8 +122,8 @@ Set Set::operator+(const Set& b) const
 	}
 	return	temp; 
 }
-Set Set::operator*(const Set& b) const
-{
+
+Set Set::operator*(const Set& b) const{
 	Set n = *this;
 	Set ny;
 	//Node* n = header->next;
@@ -144,8 +138,8 @@ Set Set::operator*(const Set& b) const
 	}
 	return ny;
 }
-Set Set::operator-(const Set& b) const
-{
+
+Set Set::operator-(const Set& b) const{
 	Set n = *this; // referensen pekar på första efter dummy 
 	Set temp;
 	Node* m = b.header->next;
@@ -157,39 +151,33 @@ Set Set::operator-(const Set& b) const
 	return n; 
 		
 }
-Set Set::operator+(int x) const
-{
+
+Set Set::operator+(int x) const{
 	Node* n = header; // referensen pekar på första efter dummy 
 	
-	while (n->next) // tittar en framåt
-	{
-		if(x > n->next->value)
-		{
+	while (n->next){ // tittar en framåt
+		if(x > n->next->value){
 			n = n->next;
 		}
-		else if	(x < n->next->value)
-		{
+		else if	(x < n->next->value){
 			n->insert(x);
 			return *this;	
 		}
-		else if(x == n->next->value)
-		{
+		else if(x == n->next->value){
 			return *this;
 		}
 	}
 }
-Set Set::operator-(int x) const
-{
-	
+
+Set Set::operator-(int x) const{
 	Set n = *this; // referensen pekar på första efter dummy 
-	if(n.member(x))
-	{
+	if(n.member(x)){
 		n.del(x);
 	}
 	return n; 
 }
-bool Set::operator<=(const Set& b) const
-{
+
+bool Set::operator<=(const Set& b) const{
 	Set n = *this;
 	
 	for (Node* m = b.header->next; m; m = m->next) {
@@ -199,16 +187,16 @@ bool Set::operator<=(const Set& b) const
 	}
 	return false;
 }
-bool Set::operator==(const Set& b) const
-{
+
+bool Set::operator==(const Set& b) const{
 	return (*this <= b) && (this->cardinality() == b.cardinality());
 }
-bool Set::operator<(const Set& b) const
-{
+
+bool Set::operator<(const Set& b) const{
 	return (*this <= b) && (this->cardinality() < b.cardinality()) ;
 }
-const Set& Set::operator=(const Set& b)
-{
+
+const Set& Set::operator=(const Set& b){
 	// Overloaded assignment operator
 	// deleat
 	Node* n = header; // referensen pekar på första efter dummy 
@@ -226,18 +214,15 @@ const Set& Set::operator=(const Set& b)
 	}
 	return *this;
 }
-std::ostream& operator << (std::ostream &os, const Set &theSet) // Printing
-{
+
+std::ostream& operator << (std::ostream &os, const Set &theSet){ // Printing
 	Node* temp = theSet.header->next;
-	if (theSet.empty()) 
-	{
+	if (theSet.empty()) {
 		os << "Set is empty!";
 		return os;
 	}
 	else {
-		
-		while(temp)
-		{
+		while(temp){
 			os << temp->value << ", "; // ty pekare till Node anars "."
 			temp = temp->next;
 		}

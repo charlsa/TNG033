@@ -5,8 +5,7 @@
 
 using namespace std;
 
-int main()
-{
+int main(){
 	int A1[] = { 1, 3, 5 };
 	int A2[] = { 2, 3, 4 };
 

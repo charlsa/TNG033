@@ -10,8 +10,10 @@ using namespace std;
 //in talen i arrayen a. Då man nått filslut ska strömmen återställas med
 //clear. Funktionen returnerar antalet inlästa heltal.
 int read_int(int a[]);
+
 //print skriver ut n heltal i arrayen a med cout. 10 tal per rad ska skrivas.
 void print(int a[], int n);
+
 //copy kopierar n heltal från arrayen from till arrayen to.
 //See Fö 3
 void copy(int *to, int *from, int n);
