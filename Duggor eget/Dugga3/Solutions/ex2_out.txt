@@ -1,0 +1,9 @@
+Length(V1) = 1.73205
+V1's X coordinate: 1
+V1's Y coordinate: 1
+V1's Z coordinate: 1
+
+Length(V1+V2) = 5.19615
+Length(V2*3 + V1) = 12.1244
+Coordinates of (V2*3 + V1 + V3): X = 10 , Y = 10 , Z = 10
+

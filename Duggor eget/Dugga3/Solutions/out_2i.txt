@@ -1,0 +1,60 @@
+Number of unique words: 55
+
+
+Unique Word         Line Number
+
+ability              1
+accessing            6
+accommodate          3
+add                  6
+almost               1
+although             2
+are                  6
+at                   9
+automatically        2
+base                 5
+be                   1
+capacity             2
+consistent           9
+consume              2
+containers           5
+easily               1
+efficient            6
+extra                3
+from                 7
+future               3
+generally            6
+growth               3
+handled              2
+inserting            8
+involve              8
+iterators            10
+less                 9
+memory               2
+more                 2
+most                 6
+operations           8
+order                3
+perform              9
+performance          1
+plus                 1
+positions            9
+provide              1
+references           10
+remove               7
+removing             8
+resized              1
+same                 1
+space                3
+standard             5
+storage              3
+tasks                1
+that                 8
+their                2
+these                1
+this                 3
+time                 6
+usually              2
+vectors              6
+when                 2
+worse                9

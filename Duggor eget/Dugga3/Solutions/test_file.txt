@@ -1,0 +1,10 @@
+Compared to arrays they provide almost the same performance for these tasks plus they have the ability to be easily resized
+Although they usually consume more memory than arrays when their capacity is handled automatically 
+This is in order to accommodate extra storage space for future growth
+
+Compared to the other base standard sequence containers deques and lists
+vectors are generally the most efficient in time for accessing elements and to add 
+or remove elements from the end of the sequence
+For operations that involve inserting or removing of elements 
+at positions other than the end they perform worse than deques and lists and have less consistent 
+iterators and references than lists
